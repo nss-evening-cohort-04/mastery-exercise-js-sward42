@@ -15,19 +15,28 @@ function growTree() {
 	}
 }
 
+function fieldVerify() {
+	if (isNaN(userHeight.value*1) === true || userChar.value.length === 0){
+		alert("Please enter both a height and character to grow your tree.");
+	} else if (userHeight.value.length === 0) {
+		alert("Please enter both a height and character to grow your tree.");
+	} else if (isNaN(userHeight.value*1) === false && userChar.value.length !== 0) {
+		growTree();
+	}
+}
 
 
 function growTreeButton(clickEvent) {
 	//console.log("tree growing");
-	growTree();
+	fieldVerify();
 }
 
 function growTreeEnter(event) {
-    if (event.keyCode == 13 || event.which == 13){
+    if (event.keyCode == 13 || event.which == 13) {
         //console.log("tree growing on enter");
-        growTree();
-        }
-    }
+		fieldVerify();       
+	}
+}
 
 
 growButton.addEventListener("click", growTreeButton);
